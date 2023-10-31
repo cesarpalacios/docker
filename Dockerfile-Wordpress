@@ -11,8 +11,8 @@ RUN requirements="zlib1g-dev libzip-dev zip libicu-dev git curl" \
     && apt-get purge --auto-remove -y
 
 ENV WORDPRESS_DB_HOST=db
-ENV WORDPRESS_DB_USER=ceapalaciosal
-ENV WORDPRESS_DB_PASSWORD=c3s4r_p4l4c10s
+ENV WORDPRESS_DB_USER=USER
+ENV WORDPRESS_DB_PASSWORD=PASS
 ENV WORDPRESS_DB_NAME=wordpress
 
 ADD ./wordpress/ /var/www/html/
