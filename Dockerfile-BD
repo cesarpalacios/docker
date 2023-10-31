@@ -1,0 +1,23 @@
+# Usar una imagen base de MariaDB
+FROM mariadb:latest
+
+# Información del mantenedor
+LABEL maintainer="tu_nombre"
+
+# Variables de entorno para configurar MariaDB
+ENV MYSQL_ROOT_PASSWORD=password
+ENV MYSQL_DATABASE=mi_basededatos
+ENV MYSQL_USER=mi_usuario
+ENV MYSQL_PASSWORD=mi_contraseña
+
+# Copiar scripts SQL a la carpeta de entrada
+COPY ./scripts/ /docker-entrypoint-initdb.d/
+
+EXPOSE 3306
+
+CMD ["mariadbd"]
+
+#sudo docker build -t db .
+#docker network create wordpress-net
+#sudo docker run --name maradb -p 3306:3306 --net=wordpress-net -d db
+#mysql -u usuario -pContraseña -h 127.0.0.1
